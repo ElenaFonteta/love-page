@@ -11,109 +11,72 @@
             padding: 20px;
             background-color: #fff0f6;
             color: #ff66b2;
+            position: relative;
+            overflow: hidden;
         }
-        h1 {
-            font-size: 40px;
-            margin-top: 20px;
+        h2 {
+            font-size: 30px;
+            margin-top: 50px;
         }
         button {
-            padding: 10px 20px;
-            margin: 15px;
+            padding: 15px 30px;
+            margin: 20px;
             background-color: #ff66b2;
-            color: white;
+            color: #fff0f6;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
             font-size: 20px;
             cursor: pointer;
         }
         button:hover {
             background-color: #ff9e80;
         }
-        audio {
-            display: block;
-            margin: 20px auto;
-            width: 80%; /* 控制播放器的宽度 */
-        }
-
-          /* 动画效果 */
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes floating-hearts {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(-500px); opacity: 0; }
-        }
-
-        /* 飘动的爱心 */
         .heart {
-            position: absolute;
+            font-size: 50px;
             color: #ff4081;
-            font-size: 24px;
-            opacity: 0;
-            animation: floating-hearts 3s linear infinite;
-
+            animation: pulse 1s infinite;
+            position: absolute;
+            animation-delay: calc(0.5s * var(--i));
         }
-
-        @keyframes heartbeat {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
-            100% {
-                transform: scale(1);
-            }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
 <body>
 
-<!-- 这个页面会让用户先点一下 -->
-<div id="startScreen" style="text-align: center; padding: 50px;">
-    <h2>准备好了吗？💖</h2>
-    <button onclick="startLove()">点我进入！</button>
-</div>
+    <div id="startScreen">
+        <h2>准备好了吗？💖</h2>
+        <button onclick="startLove()">点我进入！</button>
+    </div>
 
-<!-- 音乐播放器（隐藏时不显示）-->
-<div id="mainContent" style="display: none;">
-    <!-- 这里是 Google Drive 上的音乐链接（更改为你的音频文件链接）-->
-    <audio id="musicPlayer" controls autoplay loop>
-        <source src="https://drive.google.com/file/d/1ZwPxvNboEpxoaiw-RyAShqDA8MKRUHQ2/view?usp=drive_link" type="audio/mp3">
-        您的浏览器不支持 audio 元素。
+    <audio id="musicPlayer" autoplay loop>
+        <source src="https://drive.google.com/uc?export=download&id=1ZwPxvNboEpxoaiw-RyAShqDA8MKRUHQ2" type="audio/mp3">
     </audio>
 
-    <h1>❤️ 你还爱我吗？ ❤️</h1>
-    <!-- 爱心动画 -->
-    <div class="heart">❤️</div>  
-    <button onclick="goToYesPage()">超级爱你！</button>
-    <button onclick="goToNoPage()">不爱你</button>
-</div>
+    <script>
+        function startLove() {
+            document.getElementById("startScreen").style.display = "none";
+            createHearts();  // 生成爱心动画
+            document.body.style.backgroundColor = "#fff0f6";  // 浅粉色背景
+            document.getElementById("mainContent").style.display = "block";
+        }
 
-<script>
-// 启动表白页面并播放音乐
-function startLove() {
-    document.getElementById("startScreen").style.display = "none";
-    document.getElementById("mainContent").style.display = "block";
-
-    // 播放音乐
-    var musicPlayer = document.getElementById("musicPlayer");
-    musicPlayer.play();
-}
-
-// 点击“喜欢”按钮跳转到yes.html页面
-function goToYesPage() {
-    window.location.href = "yes.html"; // 跳转到喜欢的页面（例如yes.html）
-}
-
-// 点击“不喜欢”按钮跳转到no.html页面
-function goToNoPage() {
-    window.location.href = "no.html"; // 跳转到不喜欢的页面（例如no.html）
-}
-</script>
+        function createHearts() {
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.top = `${Math.random() * 100}%`;
+                heart.style.animationDuration = `${Math.random() * 2 + 1}s`;
+                heart.style.animationDelay = `${Math.random() * 5}s`;
+                heart.innerHTML = "❤️";
+                document.body.appendChild(heart);
+            }
+        }
+    </script>
 
 </body>
 </html>
-
