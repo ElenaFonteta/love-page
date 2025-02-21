@@ -41,20 +41,40 @@
 
 <!-- YouTube 视频（默认隐藏，进入后才显示）-->
 <div id="mainContent" style="display: none;">
-    <iframe id="ytplayer" width="0" height="0" src="" frameborder="0"></iframe>
+    <iframe id="ytplayer" width="560" height="315" src="" frameborder="0" allow="autoplay; encrypted-media"></iframe>
 
     <h1>❤️ 你是我最喜欢的人 ❤️</h1>
-    <button onclick="alert('我爱你！')">喜欢</button>
+    <button onclick="goToNextPage()">喜欢</button>
     <button onclick="alert('为什么不喜欢呢？再想想嘛！')">不喜欢</button>
 </div>
 
+<!-- 可爱页面（跳转后显示）-->
+<div id="nextPage" style="display: none; text-align: center; padding: 50px;">
+    <h2>你太可爱了！💘</h2>
+    <p>我真的好喜欢你！💖</p>
+    <button onclick="goBack()">返回</button>
+</div>
+
 <script>
+// 启动表白页面并播放音乐
 function startLove() {
     document.getElementById("startScreen").style.display = "none";
     document.getElementById("mainContent").style.display = "block";
 
     // 这里给 YouTube 加入自动播放
     document.getElementById("ytplayer").src = "https://www.youtube.com/embed/Y4xCVlyCvX4?autoplay=1&loop=1&playlist=Y4xCVlyCvX4";
+}
+
+// 点击“喜欢”按钮跳转到下一个可爱页面
+function goToNextPage() {
+    document.getElementById("mainContent").style.display = "none";
+    document.getElementById("nextPage").style.display = "block";
+}
+
+// 返回到表白页面
+function goBack() {
+    document.getElementById("nextPage").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
 }
 </script>
 
