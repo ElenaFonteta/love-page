@@ -35,12 +35,25 @@
             width: 80%; /* 控制播放器的宽度 */
         }
 
-        /* 爱心动画 */
+          /* 动画效果 */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes floating-hearts {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-500px); opacity: 0; }
+        }
+
+        /* 飘动的爱心 */
         .heart {
-            font-size: 50px;
+            position: absolute;
             color: #ff4081;
-            animation: heartbeat 1.5s infinite;
-            display: inline-block;
+            font-size: 24px;
+            opacity: 0;
+            animation: floating-hearts 3s linear infinite;
+
         }
 
         @keyframes heartbeat {
