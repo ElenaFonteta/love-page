@@ -29,13 +29,16 @@
         button:hover {
             background-color: #ff3385;
         }
+        iframe {
+            display: none; /* 初始隐藏 iframe */
+        }
     </style>
 </head>
 <body>
 
 <!-- 这个页面会让用户先点一下 -->
 <div id="startScreen" style="text-align: center; padding: 50px;">
-    <h2>准备好迎接一份甜甜的表白了吗？💖</h2>
+    <h2>准备好了吗？💖</h2>
     <button onclick="startLove()">点我进入！</button>
 </div>
 
@@ -55,7 +58,9 @@ function startLove() {
     document.getElementById("mainContent").style.display = "block";
 
     // 这里给 YouTube 加入自动播放
-    document.getElementById("ytplayer").src = "https://www.youtube.com/embed/Y4xCVlyCvX4?autoplay=1&loop=1&playlist=Y4xCVlyCvX4";
+    var iframe = document.getElementById("ytplayer");
+    iframe.style.display = "block";  // 显示 iframe
+    iframe.src = "https://www.youtube.com/embed/Y4xCVlyCvX4?autoplay=1&loop=1&playlist=Y4xCVlyCvX4";  // 自动播放音乐
 }
 
 // 点击“喜欢”按钮跳转到yes.html页面
