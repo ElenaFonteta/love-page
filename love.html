@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给你的表白</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: pink;
+            padding: 50px;
+        }
+        h1 {
+            color: red;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .yes {
+            background-color: lightcoral;
+            color: white;
+        }
+        .no {
+            background-color: lightgray;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>你喜欢我吗？</h1>
+    <div class="buttons">
+        <button class="yes" onclick="loveYou()">喜欢</button>
+        <button class="no" onclick="noClick()">不喜欢</button>
+    </div>
+
+    <script>
+        function loveYou() {
+            alert("我爱你 ❤️！");
+        }
+
+        function noClick() {
+            const messages = [
+                "你确定吗？",
+                "再考虑一下？",
+                "真的不喜欢吗？🥺",
+                "再给个机会好不好？",
+                "不可能！快点选喜欢！"
+            ];
+            const index = Math.floor(Math.random() * messages.length);
+            alert(messages[index]);
+        }
+    </script>
+</body>
+</html>
