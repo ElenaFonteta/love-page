@@ -4,10 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>你太可爱了！💘</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: "Arial", sans-serif;
+            background-color: #ffccdd;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #ff4081;
+            font-size: 26px;
+            animation: shake 1s infinite;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 12px 24px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+            background-color: #ff4081;
+            color: white;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+    </style>
 </head>
 <body>
-    <h1>❤️ 你真的太可爱了！我喜欢你！💖</h1>
-    <p>谢谢你接受我的表白！</p>
-    <button onclick="window.history.back()">返回</button>
+
+    <h1>超级超级爱你！💖</h1>
+    <button onclick="goBack()">返回💖</button>
+
+    <script>
+        function goBack() {
+            window.location.href = "index.html";
+        }
+    </script>
+
 </body>
 </html>
