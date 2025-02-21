@@ -44,15 +44,8 @@
     <iframe id="ytplayer" width="560" height="315" src="" frameborder="0" allow="autoplay; encrypted-media"></iframe>
 
     <h1>❤️ 你是我最喜欢的人 ❤️</h1>
-    <button onclick="goToNextPage()">喜欢</button>
-    <button onclick="alert('为什么不喜欢呢？再想想嘛！')">不喜欢</button>
-</div>
-
-<!-- 可爱页面（跳转后显示）-->
-<div id="nextPage" style="display: none; text-align: center; padding: 50px;">
-    <h2>你太可爱了！💘</h2>
-    <p>我真的好喜欢你！💖</p>
-    <button onclick="goBack()">返回</button>
+    <button onclick="goToYesPage()">喜欢</button>
+    <button onclick="goToNoPage()">不喜欢</button>
 </div>
 
 <script>
@@ -65,16 +58,14 @@ function startLove() {
     document.getElementById("ytplayer").src = "https://www.youtube.com/embed/Y4xCVlyCvX4?autoplay=1&loop=1&playlist=Y4xCVlyCvX4";
 }
 
-// 点击“喜欢”按钮跳转到下一个可爱页面
-function goToNextPage() {
-    document.getElementById("mainContent").style.display = "none";
-    document.getElementById("nextPage").style.display = "block";
+// 点击“喜欢”按钮跳转到yes.html页面
+function goToYesPage() {
+    window.location.href = "yes.html"; // 跳转到喜欢的页面（例如yes.html）
 }
 
-// 返回到表白页面
-function goBack() {
-    document.getElementById("nextPage").style.display = "none";
-    document.getElementById("mainContent").style.display = "block";
+// 点击“不喜欢”按钮跳转到no.html页面
+function goToNoPage() {
+    window.location.href = "no.html"; // 跳转到不喜欢的页面（例如no.html）
 }
 </script>
 
