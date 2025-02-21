@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再考虑一下嘛！🥺</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: "Arial", sans-serif;
+            background-color: #ffccdd;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #ff4081;
+            font-size: 26px;
+            animation: shake 1s infinite;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 12px 24px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+            background-color: #ff4081;
+            color: white;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>你真的不喜欢我吗？😭</h1>
+    <button onclick="goBack()">好吧，我喜欢你！💖</button>
+
+    <script>
+        function goBack() {
+            window.location.href = "index.html";
+        }
+    </script>
+
+</body>
+</html>
