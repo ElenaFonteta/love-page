@@ -3,79 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>甜甜的表白 💖</title>
+    <title>甜甜的你 💖</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             text-align: center;
-            padding: 20px;
-            background-color: #fff0f6;
-            color: #ff66b2;
+            font-family: "Arial", sans-serif;
+            background-color: #ffe6f2;
+            padding: 50px;
             position: relative;
             overflow: hidden;
         }
-        h2 {
-            font-size: 30px;
-            margin-top: 50px;
+
+        h1 {
+            color: #ff4081;
+            font-size: 28px;
+            animation: bounce 1.5s infinite;
         }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
         button {
-            padding: 15px 30px;
-            margin: 20px;
-            background-color: #ff66b2;
-            color: #fff0f6;
-            border: none;
-            border-radius: 50px;
             font-size: 20px;
+            padding: 12px 24px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .yes {
+            background-color: #ff4081;
+            color: white;
+        }
+
+        .no {
+            background-color: lightgray;
+            color: black;
+        }
+
+        /* 喜欢按钮变大 */
+        .yes:hover {
+            transform: scale(1.3);
+        }
+
+        /* 动画效果 */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes floating-hearts {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-500px); opacity: 0; }
+        }
+
+        /* 飘动的爱心 */
+        .heart {
+            position: absolute;
+            color: #ff4081;
+            font-size: 24px;
+            opacity: 0;
+            animation: floating-hearts 3s linear infinite;
+        }
+
+        /* 音乐按钮 */
+        .music {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #ff4081;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
             cursor: pointer;
         }
-        button:hover {
-            background-color: #ff9e80;
-        }
-        .heart {
-            font-size: 50px;
-            color: #ff4081;
-            animation: pulse 1s infinite;
-            position: absolute;
-            animation-delay: calc(0.5s * var(--i));
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
 
-    <div id="startScreen">
-        <h2>准备好了吗？💖</h2>
-        <button onclick="startLove()">点我进入！</button>
+    <h1>你还爱我吗？💕</h1>
+
+    <div class="buttons">
+        <button class="yes" onclick="loveYou()">超级爱你！</button>
+        <button class="no" onclick="noClick()">不爱你了</button>
     </div>
 
-    <audio id="musicPlayer" autoplay loop>
-        <source src="https://drive.google.com/uc?export=download&id=1ZwPxvNboEpxoaiw-RyAShqDA8MKRUHQ2" type="audio/mp3">
+    <audio id="bg-music" loop>
+        <source src="https://your-music-link.mp3" type="audio/mpeg">
     </audio>
 
+    <button class="music" onclick="toggleMusic()">🎵</button>
+
     <script>
-        function startLove() {
-            document.getElementById("startScreen").style.display = "none";
-            createHearts();  // 生成爱心动画
-            document.body.style.backgroundColor = "#fff0f6";  // 浅粉色背景
-            document.getElementById("mainContent").style.display = "block";
+        function loveYou() {
+            window.location.href = "yes.html";
         }
 
-        function createHearts() {
-            for (let i = 0; i < 20; i++) {
-                let heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.style.left = `${Math.random() * 100}%`;
-                heart.style.top = `${Math.random() * 100}%`;
-                heart.style.animationDuration = `${Math.random() * 2 + 1}s`;
-                heart.style.animationDelay = `${Math.random() * 5}s`;
-                heart.innerHTML = "❤️";
-                document.body.appendChild(heart);
+        function noClick() {
+            window.location.href = "no.html";
+        }
+
+        function toggleMusic() {
+            var music = document.getElementById("bg-music");
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
             }
         }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.innerHTML = "❤️";
+            heart.classList.add("heart");
+            document.body.appendChild(heart);
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.top = "100vh";
+
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        }
+
+        setInterval(createHeart, 500);
     </script>
 
 </body>
