@@ -28,6 +28,7 @@
             font-size: 20px;
             cursor: pointer;
         }
+
         button:hover {
             background-color: #ff9e80;
         }
@@ -38,11 +39,14 @@
             50% { transform: translateX(5px); }
             75% { transform: translateX(-5px); }
         }
-         /* 爱心动画 */
+
+        /* 爱心动画 */
         .heart {
             font-size: 50px;
             color: #ff4081;
             animation: pulse 1s infinite;
+            display: inline-block;
+            margin-top: 20px;
         }
 
         @keyframes pulse {
@@ -55,11 +59,15 @@
 <body>
 
     <h1>我也超级超级爱你！💖</h1>
+
+    <!-- 爱心动画 -->
+    <div class="heart">❤️</div>
+
     <button onclick="goBack()">返回</button>
 
     <script>
         function goBack() {
-            window.location.href = "index.html";
+            window.location.href = "index.html"; // 返回到首页
         }
     </script>
 
