@@ -29,9 +29,10 @@
         button:hover {
             background-color: #ff9e80;
         }
-        iframe {
-            display: none; /* 初始隐藏 iframe */
-            opacity: 0; /* 隐藏视频 */
+        audio {
+            display: block;
+            margin: 20px auto;
+            width: 80%; /* 控制播放器的宽度 */
         }
     </style>
 </head>
@@ -43,9 +44,13 @@
     <button onclick="startLove()">点我进入！</button>
 </div>
 
-<!-- YouTube 视频（默认隐藏，进入后才显示）-->
+<!-- 音乐播放器（隐藏时不显示）-->
 <div id="mainContent" style="display: none;">
-    <iframe id="ytplayer" width="560" height="315" src="" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+    <!-- 这里是 Google Drive 上的音乐链接（更改为你的音频文件链接）-->
+    <audio id="musicPlayer" controls autoplay loop>
+        <source src="https://drive.google.com/file/d/1ZwPxvNboEpxoaiw-RyAShqDA8MKRUHQ2/view?usp=drive_link" type="audio/mp3">
+        您的浏览器不支持 audio 元素。
+    </audio>
 
     <h1>❤️ 你还爱我吗？ ❤️</h1>
     <button onclick="goToYesPage()">超级爱你！</button>
@@ -58,10 +63,9 @@ function startLove() {
     document.getElementById("startScreen").style.display = "none";
     document.getElementById("mainContent").style.display = "block";
 
-    // 这里给 YouTube 加入自动播放
-    var iframe = document.getElementById("ytplayer");
-    iframe.style.display = "block";  // 显示 iframe
-    iframe.src = "https://www.youtube.com/embed/Y4xCVlyCvX4?autoplay=1&loop=1&playlist=Y4xCVlyCvX4&autohide=1&modestbranding=1";  // 自动播放音乐
+    // 播放音乐
+    var musicPlayer = document.getElementById("musicPlayer");
+    musicPlayer.play();
 }
 
 // 点击“喜欢”按钮跳转到yes.html页面
