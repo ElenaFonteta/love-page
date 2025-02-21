@@ -14,17 +14,17 @@
 
         h1 {
             color: #ff4081;
-            font-size: 26px;
+            font-size: 30px;
             animation: shake 1s infinite;
         }
 
         button {
-            padding: 10px 20px;
-            margin: 15px;
+            padding: 15px 30px;
+            margin: 20px;
             background-color: #ff66b2;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
             font-size: 20px;
             cursor: pointer;
         }
@@ -32,44 +32,3 @@
         button:hover {
             background-color: #ff9e80;
         }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-        }
-
-        /* 爱心动画 */
-        .heart {
-            font-size: 50px;
-            color: #ff4081;
-            animation: pulse 1s infinite;
-            display: inline-block;
-            margin-top: 20px;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-    </style>
-</head>
-<body>
-
-    <h1>你真的不喜欢我了嘛？😭</h1>
-
-    <!-- 爱心动画 -->
-    <div class="heart">❤️</div>
-
-    <button onclick="goBack()">好吧，我喜欢你！💖</button>
-
-    <script>
-        function goBack() {
-            window.location.href = "yes.html"; // 返回到喜欢的页面
-        }
-    </script>
-
-</body>
-</html>
