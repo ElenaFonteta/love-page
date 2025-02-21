@@ -34,6 +34,26 @@
             margin: 20px auto;
             width: 80%; /* 控制播放器的宽度 */
         }
+
+        /* 爱心动画 */
+        .heart {
+            font-size: 50px;
+            color: #ff4081;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 <body>
@@ -53,6 +73,8 @@
     </audio>
 
     <h1>❤️ 你还爱我吗？ ❤️</h1>
+    <!-- 爱心动画 -->
+    <div class="heart">❤️</div>  
     <button onclick="goToYesPage()">超级爱你！</button>
     <button onclick="goToNoPage()">不爱你</button>
 </div>
@@ -81,3 +103,4 @@ function goToNoPage() {
 
 </body>
 </html>
+
